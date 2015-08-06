@@ -7,7 +7,7 @@ So you are stuck installing software yourself in your `/home` directory.
 
 Linuxbrew is very nice but requires compilation of every software, and source compilation can be challenging if you do not have the 'right' version of the `gcc` compiler.
 
-Most other package managers with binary repositories require root access. For example, both pacman and nix require root access. To get around this limitation, we use `proot`. Unfortunately, `proot` is required for both installing and using the installed software.
+Most other package managers with binary repositories require root access. For example, both `pacman` and `nix` normally require root access. To get around this limitation, we use `proot`. As a downside, `proot` would be required for both installing and using the installed software.
 
 # Installation
 
@@ -52,5 +52,5 @@ Since Archlinux uses the very latest `gcc` and libraries, most programs installe
 
 # Other programs
 
-Simple scripts for retrieving and compiling some programs are available, such as `python2` and `python3`. Chances are your system already comes with its own python. With a local installation of python, however, you can manage your own packages using `pip`!
+Simple scripts for retrieving, compiling, and installing some programs are available, such as `python2` and `python3`. Chances are your system already comes with its own python. With a local installation of python, however, you can manage your own packages using `pip`!
 
