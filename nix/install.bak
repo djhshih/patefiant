@@ -1,0 +1,30 @@
+# Download nix
+cd $ROOT
+wget http://hydra.nixos.org/build/23017494/download/1/nix-1.9-x86_64-linux.tar.bz2
+tar -xjf nix-*.tar.bz2
+mv nix-1.9-x86_64-linux nix
+
+# Install initialization script
+echo '# .nixrc' > $HOME/.nixrc
+echo "$ROOT/bin/proot -b $ROOT/nix/:/nix bash" >> $HOME/.nixrc
+echo ". $HOME/.nix-profile/etc/profile.d/nix.sh" >> $HOME/.nixrc
+
+# Install Nix
+. $HOME/.nixrc
+cd /nix
+./install
+
+echo "Installation is complete."
+echo "Run . ~/.nixrc each time before running nix or nix-installed programs."
+
+# Re-build Nix store with new paths
+#nix-channel --update
+#env NIX_STORE_DIR=$ROOT/nix nix-env -i nix
+
+# Re-create link to nix-profile
+#rm $HOME/.nix-profile
+#ln -sf $ROOT/nix/var/nix/profiles/default $HOME/.nix-profile
+
+# Write alias to .bashrc
+#echo "alias mount-nix='$ROOT/bin/proot -b $ROOT/nix/:/nix bash'" >> $HOME/.bashrc
+
