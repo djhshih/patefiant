@@ -10,4 +10,5 @@ mv nix-${version} nix
 $ROOT/bin/proot -b $ROOT/nix:/nix /nix/install
 
 # Install proot script
-install nixroot $ROOT/bin
+localdir=$(dirname "$(readlink -f "$0")")
+install $localdir/nixroot $ROOT/bin
