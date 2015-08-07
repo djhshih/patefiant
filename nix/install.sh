@@ -12,3 +12,6 @@ $ROOT/bin/proot -b $ROOT/nix:/nix /nix/install
 # Install proot script
 localdir=$(dirname "$(readlink -f "$0")")
 install $localdir/nixroot $ROOT/bin
+
+# Modify .bashrc
+echo 'if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi' >> $HOME/.bashrc
