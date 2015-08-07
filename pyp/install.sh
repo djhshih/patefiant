@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="pyp"
-version=""
+version="2.13-beta"
 target_dir=$ROOT
 package=$name-$version
 
@@ -15,9 +15,12 @@ package=$name-$version
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
-wget -O $name 'https://docs.google.com/uc?authuser=0&id=0B3RW1AtsOguXNFdjQU1RT000Zzg&export=download'
+wget -O $package.tar.gz "https://github.com/djhshih/pyp/archive/v${version}.tar.gz"
+mkdir $package
+tar -xzf $package.tar.gz -C $package --strip-components=1
+cd $package
 
 # install package
 
-install $name $target_dir/bin
+make install DESTDIR=$target_dir
 
