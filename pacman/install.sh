@@ -1,4 +1,4 @@
-ARCH_ROOT=$HOME/arch
+ARCH_ROOT=$ROOT/arch
 SRC=root.x86_64
 
 tmpdir=$(mktemp -d) && cd $tmpdir
