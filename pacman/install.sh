@@ -17,9 +17,6 @@ proot -S $SRC $install_pacman
 
 proot -S $ARCH_ROOT pacman -Syu
 
-# Modify .bashrc
-echo "export ARCH_ROOT=$ARCH_ROOT" >> $HOME/.bashrc
-
 # Install proot script
 localdir=$(dirname "$(readlink -f "$0")")
 install $localdir/archroot $ROOT/bin
