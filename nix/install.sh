@@ -1,3 +1,5 @@
+localdir=$(dirname "$(readlink -f "$0")")
+
 # Download nix
 version=1.9-x86_64-linux
 cd $ROOT
@@ -10,7 +12,6 @@ mv nix-${version} nix
 $ROOT/bin/proot -b $ROOT/nix:/nix /nix/install
 
 # Install proot script
-localdir=$(dirname "$(readlink -f "$0")")
 install $localdir/nixroot $ROOT/bin
 
 # Modify .bashrc

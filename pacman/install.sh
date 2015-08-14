@@ -1,3 +1,5 @@
+localdir=$(dirname "$(readlink -f "$0")")
+
 ARCH_ROOT=$HOME/arch
 SRC=root.x86_64
 
@@ -21,5 +23,4 @@ proot -S $ARCH_ROOT pacman -Syu
 echo "export ARCH_ROOT=$ARCH_ROOT" >> $HOME/.bashrc
 
 # Install proot script
-localdir=$(dirname "$(readlink -f "$0")")
 install $localdir/archroot $ROOT/bin
