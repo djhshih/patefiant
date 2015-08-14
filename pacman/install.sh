@@ -1,6 +1,5 @@
 localdir=$(dirname "$(readlink -f "$0")")
-
-ARCH_ROOT=$HOME/arch
+ARCH_ROOT=$ROOT/arch
 SRC=root.x86_64
 
 tmpdir=$(mktemp -d) && cd $tmpdir
@@ -18,9 +17,6 @@ install_pacman='pacman -r $ARCH_ROOT --cacheddir $ARCH_ROOT/var/cache/pacman/pkg
 proot -S $SRC $install_pacman
 
 proot -S $ARCH_ROOT pacman -Syu
-
-# Modify .bashrc
-echo "export ARCH_ROOT=$ARCH_ROOT" >> $HOME/.bashrc
 
 # Install proot script
 install $localdir/archroot $ROOT/bin
