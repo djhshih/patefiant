@@ -1,0 +1,35 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+
+basepath=..
+
+function help() {
+	echo "usage: fac COMMAND [ARGS]"
+	echo
+	echo "  install <pkg>  Install package <pkg>"
+	echo "  list           List available packages to install"
+	echo "  help           Display this help"
+	echo
+	echo "fac is the patefiant package installer."
+}
+
+if [[ $# -eq 0 ]]; then
+	help
+	exit 1
+elif [[ $1 == "help" ]]; then
+	help
+	exit 0
+elif [[ $1 == "list" ]]; then
+	ls -1 $basepath/pkg
+	exit 0
+elif [[ $1 == "install" ]]; then
+	if [[ $# -eq 2 ]]; then
+		$basepath/pkg/$2/install.sh
+	else
+		help
+		echo "Error: no package specified"
+		exit 1
+	fi
+fi
+

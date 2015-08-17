@@ -6,9 +6,11 @@ for you. Often, they are not very nice or very responsive.
 
 So you are stuck installing software yourself in your `/home` directory.
 
-Linuxbrew is very nice but requires compilation of every software, and source
-compilation can be challenging if you do not have the 'right' version of the
-`gcc` compiler.
+Linuxbrew and Gentoo Prefix are very nice but requires compilation of every 
+software, and source compilation can be challenging if you do not have the 
+'right' version of the `gcc` compiler.
+
+By the way, deployment scripts for both Linuxbrew and Gentoo are included here.
 
 Most other package managers with binary repositories require root access. For
 example, both `pacman` and `nix` normally require root access. To get around
@@ -18,26 +20,29 @@ for both installing and using the installed software.
 
 # Installation
 
-Most local installations will be placed in `$ROOT`. If you do not set `$ROOT`,
-it will be set to `$HOME/local` by default.
+All installations will be placed in `$ROOT`. If you do not set `$ROOT`,
+it will be set to `$HOME/local` by default. Install the base and `proot` package by
 
-    ./local/install.sh
-    ./proot/install.sh
+    ./install.sh && . $HOME/.bashrc
+
+This will install the `fac` installer and source the modified `.bashrc`.
 
 If you want to use `nix`, install it by
 
-    ./nix/install.sh
+    fac install nix
+
+The nix store will be installed in `$ROOT/nix`.
 
 If you want to use `pacman` (from Archlinux), install it by
 
-    ./pacman/install.sh
+    fac install pacman
 
-Pacman will be installed into `$ARCH_ROOT` (defaults to `$HOME/arch`).
+The `pacman` package and its dependencies will be installed in `$ROOT/arch`.
 
 
 # Use
 
-To use `nix`, you will need to use proot to set up the shell environment,
+To use `nix`, you will need to use `proot` to set up the shell environment,
 and we provide `nixroot` for this task.
 
     nixroot    # enter the nixroot environment
@@ -60,7 +65,7 @@ Since Archlinux distribute binaries compiled with the latest
 in your native linux environment. So you'll need to enter the `archroot` 
 environment to run `pacman`-installed programs.
 
-    gcc --version    # probably woefully out-of-date
+    gcc --version             # probably woefully out-of-date
     archroot gcc --version    # latest and greatest
 
 On the bright side, you now get to run Archlinux within another Linux
@@ -72,7 +77,16 @@ to execute a single command.
 # Other programs
 
 Simple scripts for retrieving, compiling, and installing some programs are
-available, such as `python2` and `python3`. Chances are your system already
-comes with its own python. With a local installation of python, however,
+available, such as `python`. Chances are your system already
+comes with its own `python`. With a local installation of `python`, however,
 you can manage your own packages using `pip`!
+
+- python2, python3
+- r, r-devel (conflicts with r)
+- octave
+- perl
+
+You can see a list of available packages by
+
+    fac install list
 
