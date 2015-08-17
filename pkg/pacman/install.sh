@@ -1,3 +1,4 @@
+localdir=$(dirname "$(readlink -f "$0")")
 ARCH_ROOT=$ROOT/arch
 SRC=root.x86_64
 
@@ -18,5 +19,4 @@ proot -S $SRC $install_pacman
 proot -S $ARCH_ROOT pacman -Syu
 
 # Install proot script
-localdir=$(dirname "$(readlink -f "$0")")
 install $localdir/archroot $ROOT/bin
