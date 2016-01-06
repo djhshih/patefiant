@@ -58,8 +58,8 @@ using pacman.
 
     archroot   # enter the archroot environment
 
-		pacman -S base
-		exit
+    pacman -S base
+    exit
 
 Since Archlinux distribute binaries compiled with the latest
 `gcc` and libraries, most programs installed by pacman will probably not run 
