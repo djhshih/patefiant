@@ -18,4 +18,3 @@ echo 'export PATH=$HOME/.linuxbrew/bin:$PATH' >> $HOME/.bashrc
 echo 'export MANPATH=$HOME/.linuxbrew/share/man:$MANPATH' >> $HOME/.bashrc
 echo 'export INFOPATH=$HOME/.linuxbrew/share/info:$INFOPATH' >> $HOME/.bashrc
 
-. $HOME/.bashrc
