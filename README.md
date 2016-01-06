@@ -56,7 +56,10 @@ yourself of the symbolic links set up by `nix`.
 If you are a fan of Archlinux, you can install its base package (and more)
 using pacman.
 
-    archroot   # enter the archroot environment pacman -S base exit
+    archroot   # enter the archroot environment
+
+		pacman -S base
+		exit
 
 Since Archlinux distribute binaries compiled with the latest
 `gcc` and libraries, most programs installed by pacman will probably not run 
@@ -87,4 +90,15 @@ you can manage your own packages using `pip`!
 You can see a list of available packages by
 
     fac install list
+
+
+# Remarks
+
+While `nix` and `pacman` are great package managers, `fac` itself is
+is *not* a package manager, as it does not support uninstallation,
+nor does it keep track of the packages or handle dependencies.
+When you are installing packages with `fac`, the onus is on you to 
+ensure that the dependency requirements are met.
+
+If you ever want to start fresh, just delete your `$ROOT` directory.
 
