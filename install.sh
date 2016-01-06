@@ -15,5 +15,7 @@ export ROOT=${ROOT:-$HOME/local}
 sed "s|basepath=.*|basepath=$basepath|" $basepath/bin/fac > $ROOT/bin/fac
 chmod +x $ROOT/bin/fac
 
+fac install base
+
 #. $HOME/.bashrc
 
