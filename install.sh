@@ -1,5 +1,6 @@
 #!/bin/bash
-set -o errexit nounset pipefail
+set -o errexit
+set -o nounset
 
 homepath="$(readlink -f "$0")"
 basepath=${homepath%/*}
