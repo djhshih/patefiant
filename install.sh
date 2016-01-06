@@ -7,7 +7,6 @@ basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export ROOT=${ROOT:-$HOME/local}
 
 $basepath/pkg/base/install.sh
-$basepath/pkg/proot/install.sh
 
 sed "s|basepath=.*|basepath=$basepath|" $basepath/bin/fac > $ROOT/bin/fac
 chmod +x $ROOT/bin/fac
