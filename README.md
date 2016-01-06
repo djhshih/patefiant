@@ -23,7 +23,13 @@ it will be set to `$HOME/local` by default. Install the base and `proot` package
 
     ./install.sh && . $HOME/.bashrc
 
-This will install the `fac` installer and source the modified `.bashrc`.
+This will install the `fac` installer, modify `.bashrc`, and source the modified `.bashrc`.
+
+## Package managers
+
+To install `nix` or `pacman` below, you will first need to install `proot`:
+
+    fac install proot
 
 If you want to use `nix`, install it by
 
