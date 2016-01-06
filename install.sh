@@ -11,5 +11,3 @@ $basepath/pkg/base/install.sh
 sed "s|basepath=.*|basepath=$basepath|" $basepath/bin/fac > $ROOT/bin/fac
 chmod +x $ROOT/bin/fac
 
-. $HOME/.bashrc
-
