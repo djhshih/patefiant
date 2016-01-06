@@ -1,0 +1,20 @@
+
+# compile time environmental variables
+export CPATH=$PATEFIANT_ROOT/include:$CPATH
+export LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LIBRARY_PATH
+
+# run time environmental variables
+export PATH=$PATEFIANT_ROOT/bin:$PATH
+export LD_LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LD_LIBRARY_PATH
+export MANPATH=$PATEFIANT_ROOT/share/man:$MANPATH
+export INFOPATH=$PATEFIANT_ROOT/share/info:$INFOPATH
+
+LPATH=''
+for pkg in $PATEFIANT_ROOT/opt/*; do
+	if [[ -d $pkg/bin ]]; then
+		LPATH+=:$pkg/bin
+	else
+		LPATH+=:$pkg
+	fi
+done
+export PATH=$PATH:$LPATH
