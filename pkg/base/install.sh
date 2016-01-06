@@ -25,7 +25,7 @@ for pkg in $ROOT/opt/*; do
 		LPATH+=:$pkg
 	fi
 done
-export PATH+=:$LPATH
+export PATH=$PATH:$LPATH
 
 #### END PATEFIANT ####
 
