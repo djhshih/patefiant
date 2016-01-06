@@ -23,17 +23,15 @@ export LD_LIBRARY_PATH=$ROOT/lib:$LD_LIBRARY_PATH
 export MANPATH=$ROOT/share/man:$MANPATH
 export INFOPATH=$ROOT/share/info:$INFOPATH
 
-if [ $(ls -A $ROOT/opt) ]; then
-	LPATH=''
-	for pkg in $ROOT/opt/*; do
-		if [[ -d $pkg/bin ]]; then
-			LPATH+=:$pkg/bin
-		else
-			LPATH+=:$pkg
-		fi
-	done
-	export PATH=$PATH:$LPATH
-fi
+LPATH=''
+for pkg in $ROOT/opt/*; do
+	if [[ -d $pkg/bin ]]; then
+		LPATH+=:$pkg/bin
+	else
+		LPATH+=:$pkg
+	fi
+done
+export PATH=$PATH:$LPATH
 
 #### END PATEFIANT ####
 
