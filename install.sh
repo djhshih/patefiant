@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o errexit
 
-baseath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # set ROOT to $HOME/local unless already defined
 export ROOT=${ROOT:-$HOME/local}
