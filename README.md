@@ -8,9 +8,7 @@ So you are stuck installing software yourself in your `/home` directory.
 
 Linuxbrew and Gentoo Prefix are very nice but requires compilation of every 
 software, and source compilation can be challenging if you do not have the 
-'right' version of the `gcc` compiler.
-
-By the way, deployment scripts for both Linuxbrew and Gentoo are included here.
+'right' version of the `gcc` compiler. (In case you want to use these package managers, deployment scripts for both Linuxbrew and Gentoo are also included in this package.)
 
 Most other package managers with binary repositories require root access. For
 example, both `pacman` and `nix` normally require root access. To get around
