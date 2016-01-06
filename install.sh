@@ -16,5 +16,5 @@ chmod +x $ROOT/bin/fac
 
 fac install base
 
-#. $HOME/.bashrc
+. $HOME/.bashrc
 
