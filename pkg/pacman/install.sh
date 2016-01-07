@@ -1,5 +1,5 @@
 localdir=$(dirname "$(readlink -f "$0")")
-ARCH_ROOT=$ROOT/arch
+ARCH_ROOT=$PATEFIANT_ROOT/arch
 SRC=root.x86_64
 
 tmpdir=$(mktemp -d) && cd $tmpdir
@@ -19,4 +19,4 @@ proot -S $SRC $install_pacman
 proot -S $ARCH_ROOT pacman -Syu
 
 # Install proot script
-install $localdir/archroot $ROOT/bin
+install $localdir/archroot $PATEFIANT_ROOT/bin

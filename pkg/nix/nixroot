@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [ "$#" -eq 0 ]; then
-	$ROOT/bin/proot -b $ROOT/nix:/nix bash
+	$PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix bash
 else
 	tmpdir=$(mktemp -d)
 	tmpfile=$tmpdir/script.fifo
 	mkfifo $tmpfile
 	trap "rm -rf $tmpdir" EXIT
 	echo ". $HOME/.nix-profile/etc/profile.d/nix.sh && $@" > $tmpfile &
-	$ROOT/bin/proot -b $ROOT/nix:/nix bash $tmpfile
+	$PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix bash $tmpfile
 fi

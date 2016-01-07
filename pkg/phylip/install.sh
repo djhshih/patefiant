@@ -9,7 +9,7 @@ set -o nounset
 
 name="phylip"
 version="3.696"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package

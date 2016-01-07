@@ -21,7 +21,7 @@ ncurses_name="ncurses-$ncurses_version"
 
 # set the installation directory
 
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 
 # download source files for tmux, libevent, and ncurses
 # save them in /tmp

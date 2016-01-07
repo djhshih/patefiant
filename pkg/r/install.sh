@@ -8,7 +8,7 @@ set -e
 
 name="r"
 version="3.2.1"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir

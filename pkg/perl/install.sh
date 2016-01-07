@@ -8,7 +8,7 @@ set -e
 
 name="perl"
 version="5.22.0"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package

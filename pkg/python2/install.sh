@@ -8,7 +8,7 @@ set -e
 
 name="python"
 version="2.7.10"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package

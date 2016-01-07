@@ -10,7 +10,7 @@ set -o nounset
 
 name="medicc"
 version="git"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 dest_dir=$target_dir/opt/$name
 

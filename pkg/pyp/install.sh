@@ -8,7 +8,7 @@ set -e
 
 name="pyp"
 version="2.13-beta"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package

@@ -9,7 +9,7 @@ set -o nounset
 
 name="openfst"
 version="1.3.2"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package

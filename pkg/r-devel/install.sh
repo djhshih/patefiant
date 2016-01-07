@@ -9,7 +9,7 @@ set -e
 
 name="r"
 version="devel"
-target_dir=$ROOT
+target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
 # download package
