@@ -1,6 +1,8 @@
 #!/bin/bash 
 set -o errexit
 
+export ROOT=${ROOT:-$HOME/local}
+
 basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 mkdir -p $ROOT/{bin,lib,share/man,share/info,opt}
