@@ -23,7 +23,7 @@ cd $package
 
 # extract files, configure, and compile
 
-./configure --prefix=$target_dir
+./configure --prefix=$target_dir --with-x=no
 make
 make install
 

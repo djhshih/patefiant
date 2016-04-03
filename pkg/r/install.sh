@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="r"
-version="3.2.1"
+version="3.2.3"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -24,7 +24,7 @@ tar -xzf $package.tar.gz -C $package --strip-components=1
 cd $package
 
 
-./configure --prefix=$target_dir
+./configure --prefix=$target_dir --with-x=no
 make
 make install
 
