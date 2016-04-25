@@ -1,9 +1,14 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
 localdir=$(dirname "$(readlink -f "$0")")
 
 # Download nix
-version=1.9-x86_64-linux
+version=1.11.2-x86_64-linux
 cd $PATEFIANT_ROOT
-wget http://hydra.nixos.org/build/23017494/download/1/nix-${version}.tar.bz2
+wget http://hydra.nixos.org/build/33550003/download/1/nix-${version}.tar.bz2
 tar -xjf nix-*.tar.bz2
 rm nix-*.tar.bz2
 mv nix-${version} nix
