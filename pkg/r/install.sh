@@ -24,7 +24,7 @@ tar -xzf $package.tar.gz -C $package --strip-components=1
 cd $package
 
 
-./configure --prefix=$target_dir --with-x=no
+./configure --prefix=$target_dir
 make
 make install
 
