@@ -1,0 +1,38 @@
+#!/bin/bash
+set -o errexit
+
+# Create wrapper script for executing jar file
+
+if (( $# < 1 )); then
+	echo "usage: ${0##*/} <jar_file> ..."
+	echo
+	echo "Available jar files to wrap: "
+	echo
+	ls -1 $PATEFIANT_JAR_PATH
+	exit 1
+fi
+
+jarfile=$1; shift
+
+# append extension if it does not already exist
+if [[ ${jarfile##*.} != "jar" ]]; then
+	jarfile=${jarfile}.jar
+fi
+
+jarstem=${jarfile%%.*}
+jarscript=$PATEFIANT_ROOT/bin/$jarstem
+
+if [[ ! -f $jarscript ]]; then
+
+# print command 
+cat > $jarscript <<EOF
+#!/bin/bash
+java -jar $PATEFIANT_JAR_PATH/$jarfile "\$@"
+EOF
+
+chmod +x $jarscript
+
+else
+	echo "File name already exists: $jarscript"
+fi
+
