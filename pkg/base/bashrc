@@ -9,8 +9,6 @@ export LD_LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LD_LIBRARY_PATH
 export MANPATH=$PATEFIANT_ROOT/share/man:$MANPATH
 export INFOPATH=$PATEFIANT_ROOT/share/info:$INFOPATH
 
-export PATEFIANT_JAR_PATH=$PATEFIANT_ROOT/java
-
 LPATH=''
 for pkg in $PATEFIANT_ROOT/opt/*; do
 	if [[ -d $pkg/bin ]]; then
