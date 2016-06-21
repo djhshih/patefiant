@@ -8,6 +8,7 @@ set -e
 
 name="r"
 version="3.2.3"
+#version="3.3.0"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -24,7 +25,9 @@ tar -xzf $package.tar.gz -C $package --strip-components=1
 cd $package
 
 
-./configure --prefix=$target_dir
+./configure \
+	--prefix=$target_dir \
+	--enable-R-shlib
 make
 make install
 
