@@ -5,7 +5,7 @@ export ROOT=${ROOT:-$HOME/local}
 
 basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-mkdir -p $ROOT/{bin,lib,share/man,share/info,opt,java}
+mkdir -p $ROOT/{bin,lib,share/man,share/info,opt}
 
 
 cat >>$HOME/.bashrc <<'EOL'
