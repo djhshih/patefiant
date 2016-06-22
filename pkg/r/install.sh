@@ -27,7 +27,9 @@ cd $package
 
 ./configure \
 	--prefix=$target_dir \
-	--enable-R-shlib
+	--enable-R-shlib \
+	--disable-java
+
 make
 make install
 
