@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="python"
-version="2.7.10"
+version="2.7.11"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -22,9 +22,17 @@ cd $package
 
 # extract files, configure, and compile
 
-./configure --prefix=$target_dir
+./configure \
+	--prefix=$target_dir \
+	--enable-shared \
+	--with-threads \
+	--enable-ipv6 \
+	--with-dbmliborder=gdbm:ndbm \
+	--enable-loadable-sqlite-extensions
+
 make
 make install
+
 cd -
 
 # install pip
