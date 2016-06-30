@@ -40,3 +40,6 @@ cd -
 #wget https://bootstrap.pypa.io/get-pip.py
 #$target_dir/bin/python3 get-pip.py
 
+# create symbolic link for pip3
+ln -s "pip${version%.*}" pip3
+
