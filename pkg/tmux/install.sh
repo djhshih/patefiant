@@ -9,7 +9,7 @@ set -e
 
 # define versions
 
-tmux_version="2.0"
+tmux_version="2.2"
 
 libevent_version="2.0.22"
 ncurses_version="6.0"
