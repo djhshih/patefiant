@@ -9,10 +9,10 @@ set -e
 
 # define versions
 
-tmux_version="2.0"
+tmux_version="2.2"
 
 libevent_version="2.0.22"
-ncurses_version="6.0-20150725"
+ncurses_version="6.0"
 
 tmux_name="tmux-$tmux_version"
 tmux_relative_url="$tmux_name/$tmux_name"
@@ -31,7 +31,7 @@ tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 wget -O ${tmux_name}.tar.gz https://github.com/tmux/tmux/releases/download/${tmux_version}/${tmux_name}.tar.gz
 wget -O ${libevent_name}.tar.gz https://github.com/libevent/libevent/releases/download/release-${libevent_version}-stable/${libevent_name}-stable.tar.gz
 #wget -O ${ncurses_name}.tar.gz ftp://ftp.gnu.org/gnu/ncurses/${ncurses_name}.tar.gz
-wget -O ${ncurses_name}.tar.gz ftp://invisible-island.net/ncurses/current/${ncurses_name}.tgz
+wget -O ${ncurses_name}.tar.gz ftp://invisible-island.net/ncurses/${ncurses_name}.tar.gz
 
 # extract files, configure, and compile
 
