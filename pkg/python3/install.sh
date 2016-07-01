@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="python"
-version="3.4.3"
+version="3.5.1"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -22,9 +22,18 @@ cd $package
 
 # extract files, configure, and compile
 
-./configure --prefix=$target_dir
+./configure \
+	--prefix=$target_dir \
+	--enable-shared \
+	--with-threads \
+	--with-computed-gotos \
+	--enable-ipv6 \
+	--with-dbmliborder=gdbm:ndbm \
+	--enable-loadable-sqlite-extensions
+
 make
 make install
+
 cd -
 
 # python3 comes with pip: no need to run command below

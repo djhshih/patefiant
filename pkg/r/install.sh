@@ -27,7 +27,19 @@ cd $package
 
 ./configure \
 	--prefix=$target_dir \
-	--enable-R-shlib
+	--enable-R-shlib \
+	--disable-java
+
 make
 make install
+
+
+# install rip
+curl -L https://github.com/djhshih/rip/archive/v0.2.tar.gz | tar -xz --strip-components=1 rip-*/rip
+install rip $target_dir/bin
+
+# install additional recommended packages
+rip install -p \
+	io ggplot2 magrittr dplyr tidyr stringr lubridate \
+	devtools roxygen2 testthat
 
