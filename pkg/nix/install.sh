@@ -30,4 +30,13 @@ $PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
 install $localdir/nixroot $PATEFIANT_ROOT/bin
 
 # Modify .bashrc
-echo '[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh' >> $HOME/.bashrc
+cat >>$HOME/.bashrc <'EOL'
+
+#### BEGIN NIX ####
+
+[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+
+#### END NIX ######
+
+EOL
+
