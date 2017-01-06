@@ -12,11 +12,9 @@ cat >>$HOME/.bashrc <<'EOL'
 
 #### BEGIN PATEFIANT ####
 
-if [[ -f $HOME/.patefiant.bashrc ]]; then
-	 . $HOME/.patefiant.bashrc
-fi
+[[ -f $HOME/.patefiant.bashrc ]] && . $HOME/.patefiant.bashrc
 
-#### END PATEFIANT ####
+#### END PATEFIANT ######
 
 EOL
 
