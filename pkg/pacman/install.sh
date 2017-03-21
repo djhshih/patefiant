@@ -18,5 +18,8 @@ proot -S $SRC $install_pacman
 
 proot -S $ARCH_ROOT pacman -Syu
 
-# Install proot script
-install $localdir/archroot $PATEFIANT_ROOT/bin
+# Install proot script with expanded path
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/archroot \
+	> $PATEFIANT_ROOT/bin/archroot
+chmod +x $PATEFIANT_ROOT/bin/archroot
+
