@@ -7,19 +7,33 @@ basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 mkdir -p $ROOT/{bin,lib,share/man,share/info,opt}
 
+if [[ -w $HOME/.bashrc ]]; then
+# .bashrc is writable: automatically write the required configuration
 
-cat >>$HOME/.bashrc <<'EOL'
+	cat >>$HOME/.bashrc <<-'EOL'
 
-#### BEGIN PATEFIANT ####
+		#### BEGIN PATEFIANT ####
 
-[[ -f $HOME/.patefiant.bashrc ]] && . $HOME/.patefiant.bashrc
+		[[ -f $HOME/.patefiant.bashrc ]] && . $HOME/.patefiant.bashrc
 
-#### END PATEFIANT ######
+		#### END PATEFIANT ######
 
-EOL
+	EOL
 
-cat >$HOME/.patefiant.bashrc <<EOL
-export PATEFIANT_ROOT=$ROOT
+else
+
+	cat <<-'EOL'
+
+		You need to add the following to your ~/.bashrc:
+
+		[[ -f $HOME/.patefiant.bashrc ]] && . $HOME/.patefiant.bashrc
+
+	EOL
+
+fi
+
+cat >$HOME/.patefiant.bashrc <<-EOL
+	export PATEFIANT_ROOT=$ROOT
 EOL
 
 cat $basepath/bashrc >>$HOME/.patefiant.bashrc
