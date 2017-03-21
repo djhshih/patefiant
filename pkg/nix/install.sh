@@ -30,6 +30,7 @@ $PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
 sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot |
 	sed "s|\$HOME|$HOME|g" \
 	> $PATEFIANT_ROOT/bin/nixroot
+chmod +x $PATEFIANT_ROOT/bin/nixroot
 
 # Modify .bashrc
 if [[ -w $HOME/.bashrc ]]; then
