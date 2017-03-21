@@ -26,17 +26,33 @@ mv nix-${version} nix
 # Install Nix
 $PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
 
-# Install proot script
-install $localdir/nixroot $PATEFIANT_ROOT/bin
+# Install proot script with expanded paths
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot |
+	sed "s|\$HOME|$HOME|g" \
+	> $PATEFIANT_ROOT/bin/nixroot
 
 # Modify .bashrc
-cat >>$HOME/.bashrc <'EOL'
+if [[ -w $HOME/.bashrc ]]; then
 
-#### BEGIN NIX ####
+	cat >>$HOME/.bashrc <<-'EOL'
 
-[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+		#### BEGIN NIX ####
 
-#### END NIX ######
+		[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
 
-EOL
+		#### END NIX ######
+
+	EOL
+
+else
+
+	cat <<-'EOL'
+
+		You need to add the following to your ~/.bashrc:
+
+		[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
+
+	EOL
+
+fi
 
