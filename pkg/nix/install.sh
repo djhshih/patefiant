@@ -18,7 +18,7 @@ esac
 
 version=1.11.2-x86_64-linux
 cd $PATEFIANT_ROOT
-wget https://nixos.org/releases/nix/nix-${version}/nix-${version}-${system}.tar.bz2"
+wget "https://nixos.org/releases/nix/nix-${version}/nix-${version}-${system}.tar.bz2"
 tar -xjf nix-*.tar.bz2
 rm nix-*.tar.bz2
 mv nix-${version} nix
@@ -27,8 +27,8 @@ mv nix-${version} nix
 $PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
 
 # Install proot script with expanded paths
-sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot |
-	sed "s|\$HOME|$HOME|g" \
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
+	| sed "s|\$HOME|$HOME|g" \
 	> $PATEFIANT_ROOT/bin/nixroot
 chmod +x $PATEFIANT_ROOT/bin/nixroot
 
