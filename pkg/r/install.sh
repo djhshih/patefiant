@@ -34,9 +34,8 @@ make
 make install
 
 
-# install rip
-curl -L https://github.com/djhshih/rip/archive/v0.2.tar.gz | tar -xz --strip-components=1 'rip-*/rip'
-install rip $target_dir/bin
+# install dependency
+fac install rip
 
 # install additional recommended packages
 rip install -p \
