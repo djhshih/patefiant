@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+
+python3 $ENAGET_ROOT/python3/enaGroupGet.py -as $ENAGET_ROOT/etc/aspera.ini "$@"
