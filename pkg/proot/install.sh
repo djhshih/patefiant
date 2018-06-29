@@ -1,4 +1,3 @@
 cd $PATEFIANT_ROOT/bin
-wget --no-check-certificate http://static.proot.me/proot-x86_64
-mv proot-x86_64 proot
+wget -O proot https://github.com/proot-me/proot-static-build/releases/download/v5.1.1/proot_5.1.1_x86_64_rc2
 chmod u+x proot
