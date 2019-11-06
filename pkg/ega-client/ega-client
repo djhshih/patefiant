@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar $PATEFIANT_ROOT/java/ega-client.jar "$@"
+java -jar $PATEFIANT_ROOT/java/EgaDemoClient.jar "$@"

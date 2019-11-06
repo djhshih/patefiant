@@ -21,6 +21,7 @@ unzip EgaDemoClient_${version}.zip
 
 # install package
 
+mkdir -p $target_dir/java
 mv EgaDemoClient.jar $target_dir/java
 install $basepath/ega-client $target_dir/bin
 
