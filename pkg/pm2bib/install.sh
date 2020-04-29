@@ -11,6 +11,6 @@ tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
 # install rip
 curl -L https://github.com/djhshih/${name}/archive/v${version}.tar.gz |
-	tar -xz --strip-components=1 --wildcards 'pm2bib-*/pm2bib.py'
+	tar -xz --strip-components=1 'pm2bib-*/pm2bib.py'
 install pm2bib.py $target_dir/bin/pm2bib && rm pm2bib.py
 
