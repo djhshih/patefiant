@@ -1,3 +1,7 @@
+if [[ -z ${PATEFIANT_ROOT:+x} ]]; then
+
+export PATEFIANT_ROOT=
+
 # compile time environmental variables
 export CPATH=$PATEFIANT_ROOT/include:$CPATH
 export LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LIBRARY_PATH
@@ -28,3 +32,4 @@ fi
 
 export PATH=${PATH}${LPATH}
 
+fi

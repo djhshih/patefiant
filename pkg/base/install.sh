@@ -32,9 +32,5 @@ else
 
 fi
 
-cat >$HOME/.patefiant.bashrc <<-EOL
-	export PATEFIANT_ROOT=$ROOT
-EOL
-
-cat $basepath/bashrc >>$HOME/.patefiant.bashrc
+sed "s|PATEFIANT_ROOT=.*|PATEFIANT_ROOT=$ROOT|" $basepath/bashrc > $HOME/.patefiant.bashrc
 
