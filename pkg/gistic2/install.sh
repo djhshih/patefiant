@@ -23,8 +23,9 @@ cd $target_dir/MCR_Installer
 unzip MCRInstaller.zip
 ./install -mode silent -agreeToLicense yes -destinationFolder $(readlink -f ../MATLAB_Compiler_Runtime/)
 
-# replace executable script
-cp $localdir/gistic2 ../gistic2
+# install modified executable script
+mkdir -p ../bin
+cp $localdir/gistic2 ../bin
 
 # clean up
 cd - && rm -rf MCR_Installer

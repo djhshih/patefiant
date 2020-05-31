@@ -3,7 +3,7 @@
 
 localdir=$(dirname "$(readlink -f "$0")")
 
-MCR_ROOT=$localdir/MATLAB_Compiler_Runtime
+MCR_ROOT=$localdir/../MATLAB_Compiler_Runtime
 MCR_VER=v83
 
 echo Setting Matlab MCR root to $MCR_ROOT
@@ -17,4 +17,4 @@ XAPPLRESDIR=$MCR_ROOT/$MCR_VER/MATLAB_Component_Runtime/v83/X11/app-defaults
 export XAPPLRESDIR
 
 ## launch GISTIC executable
-$localdir/gp_gistic2_from_seg $@
+$localdir/../gp_gistic2_from_seg $@
