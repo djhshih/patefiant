@@ -3,7 +3,7 @@ set -eou pipefail
 
 name=miniconda
 version=latest
-arch=x86_64
+arch=$(uname -m)
 url=https://repo.anaconda.com/miniconda
 
 case "$(uname -s)" in
