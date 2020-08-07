@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o errexit
+set -euo pipefail
 
 basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
