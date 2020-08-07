@@ -18,7 +18,7 @@ for both installing and using the installed software.
 
 # Installation
 
-All installations will be placed in `$ROOT`. If you do not set `$ROOT`,
+All installations will be placed in `$DESTDIR`. If you do not set `$DESTDIR`,
 it will be set to `$HOME/local` by default. Install the base and `proot` package by
 
     ./install.sh && . $HOME/.bashrc
@@ -35,13 +35,13 @@ If you want to use `nix`, install it by
 
     fac install nix
 
-The nix store will be installed in `$ROOT/nix`.
+The nix store will be installed in `$DESTDIR/nix`.
 
 If you want to use `pacman` (from Archlinux), install it by
 
     fac install pacman
 
-The `pacman` package and its dependencies will be installed in `$ROOT/arch`.
+The `pacman` package and its dependencies will be installed in `$DESTDIR/arch`.
 
 
 # Use
@@ -106,5 +106,5 @@ nor does it keep track of the packages or handle dependencies.
 When you are installing packages with `fac`, the onus is on you to 
 ensure that the dependency requirements are met.
 
-If you ever want to start fresh, just delete your `$ROOT` directory.
+If you ever want to start fresh, just delete your `$DESTDIR` directory.
 
