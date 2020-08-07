@@ -4,11 +4,11 @@ set -eou pipefail
 name=miniconda
 version=latest
 arch=x86_64
-url=https://repo.continuum.io/miniconda
+url=https://repo.anaconda.com/miniconda
 
 case "$(uname -s)" in
-	Linux*)     platform=Ubuntu;;
-	Darwin*)    platform=OSX;;
+	Linux*)     platform=Linux;;
+	Darwin*)    platform=MacOSX;;
 	*)          platform=;;
 esac 
 
@@ -20,8 +20,7 @@ fi
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
 curl -o installer.sh $url/Miniconda3-${version}-${platform}-${arch}.sh
-chmod +x installer.sh
-./installer.sh
+bash installer.sh
 
 cd -
 
