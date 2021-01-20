@@ -5,7 +5,7 @@ set -o nounset
 
 localdir=$(dirname "$(readlink -f "$0")")
 
-version=2.0.4
+version=2.3.10
 
 # Download nix
 
@@ -16,10 +16,20 @@ case "$(uname -s).$(uname -m)" in
     *) oops "sorry, there is no binary distribution of Nix for your platform";;
 esac
 
+case "$(uname -s).$(uname -m)" in
+    Linux.x86_64) system=x86_64-linux;;
+    Linux.i?86) system=i686-linux;;
+    Linux.aarch64) system=aarch64-linux;;
+    Darwin.x86_64) system=x86_64-darwin;;
+    # eventually maybe: system=arm64-darwin;;
+    Darwin.arm64) system=x86_64-darwin;;
+    *) oops "sorry, there is no binary distribution of Nix for your platform";;
+esac
+
 cd $PATEFIANT_ROOT
-wget --no-check-certificate "https://nixos.org/releases/nix/nix-${version}/nix-${version}-${system}.tar.bz2"
-tar -xjf nix-*.tar.bz2
-rm nix-*.tar.bz2
+wget --no-check-certificate "https://releases.nixos.org/nix/nix-${version}/nix-${version}-${system}.tar.xz"
+tar -xJf nix-*.tar.xz
+rm nix-*.tar.xz
 mv nix-${version}-* nix
 
 # Install Nix
