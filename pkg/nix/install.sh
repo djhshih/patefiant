@@ -10,13 +10,6 @@ version=2.3.10
 # Download nix
 
 case "$(uname -s).$(uname -m)" in
-    Linux.x86_64) system=x86_64-linux;; 
-    Linux.i?86) system=i686-linux;;
-    Darwin.x86_64) system=x86_64-darwin;;
-    *) oops "sorry, there is no binary distribution of Nix for your platform";;
-esac
-
-case "$(uname -s).$(uname -m)" in
     Linux.x86_64) system=x86_64-linux;;
     Linux.i?86) system=i686-linux;;
     Linux.aarch64) system=aarch64-linux;;
