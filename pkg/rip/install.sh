@@ -4,7 +4,7 @@ set -e
 # Script for installing R package installer rip
 
 name="rip"
-version="0.2"
+version="0.3"
 target_dir=$PATEFIANT_ROOT
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
