@@ -9,7 +9,8 @@ set -e
 name="r"
 #version="3.2.3"
 #version="3.3.0"
-version="3.5.1"
+#version="3.5.1"
+version="4.0.3"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -17,7 +18,7 @@ tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
 # download package
 
-wget -O $package.tar.gz https://cran.r-project.org/src/base/R-3/R-${version}.tar.gz
+wget -O $package.tar.gz https://cran.r-project.org/src/base/R-4/R-${version}.tar.gz
 
 # extract files, configure, and compile
 
