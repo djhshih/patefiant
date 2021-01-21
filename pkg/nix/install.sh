@@ -25,6 +25,9 @@ tar -xJf nix-*.tar.xz
 rm nix-*.tar.xz
 mv nix-${version}-* nix
 
+# TODO
+# use nix-user-chroot instead of proot
+
 # Install Nix
 $PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
 
