@@ -1,0 +1,14 @@
+#!/bin/bash
+
+tmpdir=$(mktemp -d)
+tmpfile=$tmpdir/script.fifo
+mkfifo $tmpfile
+trap "rm -rf $tmpdir" INT TERM EXIT
+
+if [ "$#" -eq 0 ]; then
+	echo ". ~/.bashrc && . $HOME/.nix-profile/etc/profile.d/nix.sh" > $tmpfile &
+	$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash --rcfile $tmpfile -l
+else
+	echo ". $HOME/.nix-profile/etc/profile.d/nix.sh && $@" > $tmpfile &
+	$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash $tmpfile
+fi
