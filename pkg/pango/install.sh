@@ -28,7 +28,7 @@ rm -f pango-view/pango-view.1.in
 ./configure \
 	--prefix=$target_dir \
 	--sysconfdir=$target_dir/etc \
-  --localstatedir=$target_dir/var \
+	--localstatedir=$target_dir/var \
 	--with-included-modules=basic-fc
 
 sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
