@@ -4,7 +4,7 @@ set -e
 # Script for installing cromwell
 
 name=cromwell
-version="29"
+version="77"
 
 author=broadinstitute
 repo=cromwell
