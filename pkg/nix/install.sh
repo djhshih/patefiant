@@ -1,7 +1,7 @@
 #!/bin/bash
 
-set -o errexit
-set -o nounset
+#set -o errexit
+#set -o nounset
 
 localdir=$(dirname "$(readlink -f "$0")")
 
@@ -25,7 +25,7 @@ tar -xJf nix-*.tar.xz
 rm nix-*.tar.xz
 mv nix-${version}-* nix
 
-wget https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl nix-user-chroot
+wget -O nix-user-chroot https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl
 install nix-user-chroot $PATEFIANT_ROOT/bin
 
 # TODO  use nix-user-chroot instead of proot
