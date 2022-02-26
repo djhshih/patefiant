@@ -10,7 +10,8 @@ version=
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
 # Download google cloud sdk install script
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "aws.zip"
+unzip aws.zip
 
-bash ./aws/install -i $PATEFIANT_ROOT/opt -b $PATIEFIANT_ROOT/bin
+bash ./aws/install -i $PATEFIANT_ROOT/opt -b $PATEFIANT_ROOT/bin
 
