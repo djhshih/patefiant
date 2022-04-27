@@ -9,6 +9,8 @@ set -e
 name="aspera"
 version="3.8.0"
 build=158555-linux-g2.12-64
+#version="4.1.3"
+#build=93_linux
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -24,4 +26,4 @@ cd $package
 bash ibm-aspera-connect-${version}.${build}.sh
 
 # aspera installation directory is hard-coded
-ln -s ~/.aspera/connect/bin/ascp $target_dir/
+ln -s ~/.aspera/connect/bin/ascp $target_dir/bin/
