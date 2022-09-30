@@ -2,8 +2,8 @@
 set -eou pipefail
 
 name=gdc-client
-version=1.6.0
-suffix="-py3.7_0"
+version=1.6.1
+suffix=
 url=https://gdc.cancer.gov/files/public/file/
 
 case "$(uname -s)" in
