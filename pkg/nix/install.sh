@@ -5,7 +5,8 @@
 
 localdir=$(dirname "$(readlink -f "$0")")
 
-version=2.3.10
+version=2.12.0
+compress=xz
 
 # Download nix
 
@@ -20,27 +21,25 @@ case "$(uname -s).$(uname -m)" in
 esac
 
 cd $PATEFIANT_ROOT
-wget --no-check-certificate "https://releases.nixos.org/nix/nix-${version}/nix-${version}-${system}.tar.xz"
-tar -xJf nix-*.tar.xz
-rm nix-*.tar.xz
+wget --no-check-certificate "https://releases.nixos.org/nix/nix-${version}/nix-${version}-${system}.tar.${compress}"
+tar -xf nix-*.tar.${compress}
+rm nix-*.tar.${compress}
+rm -rf nix
 mv nix-${version}-* nix
 
-wget -O nix-user-chroot https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl
-install nix-user-chroot $PATEFIANT_ROOT/bin
+wget -O $PATEFIANT_ROOT/bin/nix-user-chroot https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl
+chmod +x $PATEFIANT_ROOT/bin/nix-user-chroot
 
-# TODO  use nix-user-chroot instead of proot
-#$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash -c "/nix/install"
+# Clear system library paths: this is important so that /nix/store library
+# paths are used
+
+unset LD_LIBRARY_PATH
+
+# Install Nix using nix-user-chroot
+
+$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash -c "/nix/install --no-daemon"
 
 # Install nix-user-chroot script with expanded paths
-sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot2 \
-	| sed "s|\$HOME|$HOME|g" \
-	> $PATEFIANT_ROOT/bin/nixroot2
-chmod +x $PATEFIANT_ROOT/bin/nixroot2
-
-# Install Nix
-$PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
-
-# Install proot script with expanded paths
 sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
 	| sed "s|\$HOME|$HOME|g" \
 	> $PATEFIANT_ROOT/bin/nixroot
