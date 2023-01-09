@@ -35,25 +35,15 @@ chmod +x $PATEFIANT_ROOT/bin/nix-user-chroot
 
 unset LD_LIBRARY_PATH
 
-# Install Nix using proot
-
-#$PATEFIANT_ROOT/bin/proot -b $PATEFIANT_ROOT/nix:/nix /nix/install
-
-# Install proot script with expanded paths
-#sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
-#	| sed "s|\$HOME|$HOME|g" \
-#	> $PATEFIANT_ROOT/bin/nixroot
-#chmod +x $PATEFIANT_ROOT/bin/nixroot
-
 # Install Nix using nix-user-chroot
 
 $PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash -c "/nix/install --no-daemon"
 
 # Install nix-user-chroot script with expanded paths
-sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot2 \
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
 	| sed "s|\$HOME|$HOME|g" \
-	> $PATEFIANT_ROOT/bin/nixroot2
-chmod +x $PATEFIANT_ROOT/bin/nixroot2
+	> $PATEFIANT_ROOT/bin/nixroot
+chmod +x $PATEFIANT_ROOT/bin/nixroot
 
 # Modify .bashrc
 if [[ -w $HOME/.bashrc ]]; then
