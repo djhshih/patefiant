@@ -11,11 +11,11 @@ txtred='\[\e[0;31m\]' # Red
 # we unset LD_LIBRARY_PATH in the rcfile because system paths in
 # LD_LIBRARY_PATH takes precedence over paths in /nix/store,
 # which would cause linkage issues for nix or programs compiled with nix
-init=". ~/.bashrc; . /home/dshih/.nix-profile/etc/profile.d/nix.sh; unset LD_LIBRARY_PATH; PS1=\"(nix)${txtred}\$${txtpln} \"" 
+init=". $HOME/.bashrc; . $HOME/.nix-profile/etc/profile.d/nix.sh; unset LD_LIBRARY_PATH; PS1=\"(nix)${txtred}\$${txtpln} \"" 
 
 if [ "$#" -eq 0 ]; then
 	echo "$init" > $tmpfile &
-	$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash --noprofile --rcfile $tmpfile -l
+	$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash --noprofile --rcfile $tmpfile
 else
 	echo "$init; $@" > $tmpfile &
 	$PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash $tmpfile
