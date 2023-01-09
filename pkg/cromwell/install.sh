@@ -4,7 +4,7 @@ set -e
 # Script for installing cromwell
 
 name=cromwell
-version="77"
+version="84"
 
 author=broadinstitute
 repo=cromwell
@@ -25,4 +25,8 @@ ln -sf $target_dir/${name}-${version}.jar $target_dir/${name}.jar
 echo "java -Xmx1G -XX:+UseSerialGC -jar $target_dir/${name}.jar \"\$@\"" > $name
 chmod +x $name
 install $name $PATEFIANT_ROOT/bin
+
+# TODO install jar to ~/local/opt/cromwell/jar
+# TODO install executable scripts
+# TODO install config
 
