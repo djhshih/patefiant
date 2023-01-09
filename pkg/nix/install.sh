@@ -5,12 +5,6 @@
 
 localdir=$(dirname "$(readlink -f "$0")")
 
-#version=2.3.3
-#compress=xz
-
-# GLIBCXX_3.4.26 required for later versions of nix
-#version=2.3.3
-#version=2.3.10
 version=2.12.0
 compress=xz
 
@@ -35,6 +29,11 @@ mv nix-${version}-* nix
 
 wget -O $PATEFIANT_ROOT/bin/nix-user-chroot https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl
 chmod +x $PATEFIANT_ROOT/bin/nix-user-chroot
+
+# Clear system library paths: this is important so that /nix/store library
+# paths are used
+
+unset LD_LIBRARY_PATH
 
 # Install Nix using proot
 
