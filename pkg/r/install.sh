@@ -11,7 +11,7 @@ name="r"
 #version="3.3.0"
 #version="3.5.1"
 #version="4.0.3"
-version="4.1.2"
+version="4.2.2"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -31,7 +31,8 @@ cd $package
 ./configure \
 	--prefix=$target_dir \
 	--enable-R-shlib \
-	--disable-java
+	--disable-java \
+	--with-x=no \
 
 make
 make install
