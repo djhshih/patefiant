@@ -21,7 +21,5 @@ mkdir $package
 tar -xf $package.tar.xz -C $package --strip-components=1
 cd $package
 
-# extract files, configure, and compile
-
 cp -r {bin,lib,include,share} $target_dir
 
