@@ -45,28 +45,3 @@ sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
 	> $PATEFIANT_ROOT/bin/nixroot
 chmod +x $PATEFIANT_ROOT/bin/nixroot
 
-# Modify .bashrc
-if [[ -w $HOME/.bashrc ]]; then
-
-	cat >>$HOME/.bashrc <<-'EOL'
-
-		#### BEGIN NIX ####
-
-		[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
-
-		#### END NIX ######
-
-	EOL
-
-else
-
-	cat <<-'EOL'
-
-		You need to add the following to your ~/.bashrc:
-
-		[[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]] && . $HOME/.nix-profile/etc/profile.d/nix.sh
-
-	EOL
-
-fi
-
