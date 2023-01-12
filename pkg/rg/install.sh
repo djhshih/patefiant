@@ -10,7 +10,7 @@ target_dir=$PATEFIANT_ROOT
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
-# install rip
+# install static binary
 curl -L https://github.com/BurntSushi/ripgrep/releases/download/${version}/ripgrep-${version}-${arch}.tar.gz |
 	tar --strip-components=1 -xz
 install rg $target_dir/bin
