@@ -30,18 +30,15 @@ mv nix-${version}-* nix
 wget -O $PATEFIANT_ROOT/bin/nix-user-chroot https://github.com/nix-community/nix-user-chroot/releases/download/1.1.1/nix-user-chroot-bin-1.1.1-x86_64-unknown-linux-musl
 chmod +x $PATEFIANT_ROOT/bin/nix-user-chroot
 
-# Clear system library paths: this is important so that /nix/store library
-# paths are used
-
+# Clear system library paths:
+# this is important so that /nix/store library paths are used
 unset LD_LIBRARY_PATH
 
 # Install Nix using nix-user-chroot
-
 $PATEFIANT_ROOT/bin/nix-user-chroot $PATEFIANT_ROOT/nix bash -c "/nix/install --no-daemon"
 
 # Install nix-user-chroot script with expanded paths
-sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/nixroot \
-	| sed "s|\$HOME|$HOME|g" \
-	> $PATEFIANT_ROOT/bin/nixroot
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g;s|\$HOME|$HOME|g" $localdir/nixroot \
+    > $PATEFIANT_ROOT/bin/nixroot
 chmod +x $PATEFIANT_ROOT/bin/nixroot
 
