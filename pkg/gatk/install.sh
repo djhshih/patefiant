@@ -6,7 +6,7 @@ set -o nounset
 localdir=$(dirname "$(readlink -f "$0")")
 
 name=gatk
-version=4.1.9.0
+version=4.3.0.0
 target_dir=$PATEFIANT_ROOT/opt/gatk
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
