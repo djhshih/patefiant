@@ -25,8 +25,7 @@ curl -o installer.sh $url/Miniconda3-${version}-${platform}-${arch}.sh
 bash installer.sh
 
 # Install bashrc with expanded paths
-sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g" $localdir/bashrc |
-	sed "s|\$HOME|$HOME|g" \
+sed "s|\$PATEFIANT_ROOT|$PATEFIANT_ROOT|g;s|\$HOME|$HOME|g" $localdir/bashrc \
 	> $HOME/.miniconda3.bashrc
 
 cd -
