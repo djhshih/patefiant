@@ -25,11 +25,14 @@ elif [[ $1 == "list" ]]; then
 	exit 0
 elif [[ $1 == "install" ]]; then
 	if [[ $# -eq 2 ]]; then
-		$basepath/pkg/$2/install.sh
+		( cd $basepath/pkg/$2 && ./install.sh )
 	else
 		help
-		echo "Error: no package specified"
+		echo "Error: no package specified" >&2
 		exit 1
 	fi
+else
+	echo "Error: unrecognized command, $1" >&2
+	exit 1
 fi
 
