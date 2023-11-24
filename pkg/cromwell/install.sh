@@ -14,12 +14,15 @@ url=https://github.com/$author/$repo/releases/download/${version}/${name}-${vers
 # set the installation directory
 
 target_dir=$PATEFIANT_ROOT/java
-config_path=$PATEFIANT_ROOT/opt/cromwell/etc/config
+
+config_dir=$PATEFIANT_ROOT/opt/cromwell/etc/
+config_path=$config_dir/config
 
 # download source files for tmux, libevent, and ncurses
 # save them in /tmp
 
 mkdir -p $target_dir
+mkdir -p $config_dir
 
 install_jar() {
 	jname=$1
