@@ -4,7 +4,7 @@ set -e
 # Script for installing cromwell
 
 name=cromwell
-version="84"
+version="86"
 
 author=broadinstitute
 repo=cromwell
@@ -14,19 +14,25 @@ url=https://github.com/$author/$repo/releases/download/${version}/${name}-${vers
 # set the installation directory
 
 target_dir=$PATEFIANT_ROOT/java
+config_path=$PATEFIANT_ROOT/opt/cromwell/etc/config
 
 # download source files for tmux, libevent, and ncurses
 # save them in /tmp
 
 mkdir -p $target_dir
-wget -O $target_dir/${name}-${version}.jar $url
-ln -sf $target_dir/${name}-${version}.jar $target_dir/${name}.jar
 
-echo "java -Xmx1G -XX:+UseSerialGC -jar $target_dir/${name}.jar \"\$@\"" > $name
-chmod +x $name
-install $name $PATEFIANT_ROOT/bin
+install_jar() {
+	jname=$1
+	config=$2
 
-# TODO install jar to ~/local/opt/cromwell/jar
-# TODO install executable scripts
-# TODO install config
+	wget -O $target_dir/${jname}-${version}.jar $url
+	ln -sf $target_dir/${jname}-${version}.jar $target_dir/${jname}.jar
+
+	echo "java -Xmx1G -XX:+UseSerialGC $config -jar $target_dir/${jname}.jar \"\$@\"" > $jname
+	chmod +x $jname
+	mv $jname $PATEFIANT_ROOT/bin
+}
+
+install_jar $name "-Dconfig.file=$config_path"
+install_jar womtool
 
