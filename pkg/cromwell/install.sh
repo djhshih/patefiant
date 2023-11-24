@@ -36,3 +36,5 @@ install_jar() {
 install_jar $name "-Dconfig.file=$config_path"
 install_jar womtool
 
+# install default configuration file
+cp config $config_path
