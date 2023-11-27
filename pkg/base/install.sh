@@ -1,7 +1,7 @@
 #!/bin/bash 
-set -o errexit
+set -euo pipefail
 
-export ROOT=${ROOT:-$HOME/local}
+# required parameter: ROOT
 
 basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -19,6 +19,8 @@ if [[ -w $HOME/.bashrc ]]; then
 		#### END PATEFIANT ######
 
 	EOL
+
+	echo "Your ~/.bashrc has been modifed."
 
 else
 
