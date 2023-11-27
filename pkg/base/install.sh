@@ -4,6 +4,7 @@ set -euo pipefail
 # required parameter: ROOT
 
 basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $basepath/../lib.sh
 
 mkdir -p $ROOT/{bin,lib,share/man,share/info,opt}
 
@@ -34,5 +35,5 @@ else
 
 fi
 
-sed "s|PATEFIANT_ROOT=.*|PATEFIANT_ROOT=$ROOT|" $basepath/bashrc > $HOME/.patefiant.bashrc
+_def_var PATEFIANT_ROOT $ROOT $basepath/bashrc > $HOME/.patefiant.bashrc
 
