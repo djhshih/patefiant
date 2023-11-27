@@ -24,6 +24,7 @@ for pkg in $PATEFIANT_ROOT/opt/*; do
 	fi
 done
 
+# avoid adding extra ':'
 if [[ ${PATH: -1} == ":" ]]; then
 	LPATH=${LPATH%:}
 else
