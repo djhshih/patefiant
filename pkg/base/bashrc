@@ -1,4 +1,4 @@
-add_pat_path() {
+pat_add_paths() {
 	# add valid opt package bin directories to $PATH
 	LPATH=''
 	for pkg in $PATEFIANT_ROOT/opt/*; do
@@ -35,6 +35,6 @@ export LD_LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LD_LIBRARY_PATH
 export MANPATH=$PATEFIANT_ROOT/share/man:$MANPATH
 export INFOPATH=$PATEFIANT_ROOT/share/info:$INFOPATH
 
-add_pat_path
+pat_add_paths
 
 fi
