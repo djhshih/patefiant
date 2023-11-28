@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+basepath="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $basepath/../lib.sh
+
 # Script for installing cromwell
 
 name=cromwell
@@ -15,7 +18,7 @@ url=https://github.com/$author/$repo/releases/download/${version}
 
 target_dir=$PATEFIANT_ROOT/java
 
-config_dir=$PATEFIANT_ROOT/opt/cromwell/etc/
+config_dir=$PATEFIANT_ROOT/opt/cromwell/etc
 config_path=$config_dir/config
 
 # download source files for tmux, libevent, and ncurses
@@ -26,7 +29,7 @@ mkdir -p $config_dir
 
 install_jar() {
 	jname=$1
-	config=$2
+	config=${2:-}
 
 	wget -O $target_dir/${jname}-${version}.jar $url/${jname}-${version}.jar
 	ln -sf $target_dir/${jname}-${version}.jar $target_dir/${jname}.jar
@@ -40,4 +43,5 @@ install_jar $name "-Dconfig.file=$config_path"
 install_jar womtool
 
 # install default configuration file
-cp config $config_path
+cp $basepath/config $config_path
+
