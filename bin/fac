@@ -4,7 +4,7 @@ set -o nounset
 
 basepath=..
 
-function help() {
+help() {
 	echo "usage: fac COMMAND [ARGS]"
 	echo
 	echo "  install <pkg>  Install package <pkg>"
