@@ -1,3 +1,26 @@
+add_pat_path() {
+	# add valid opt package bin directories to $PATH
+	LPATH=''
+	for pkg in $PATEFIANT_ROOT/opt/*; do
+		if [[ -d $pkg ]]; then
+			if [[ -d $pkg/bin ]]; then
+				LPATH+=$pkg/bin:
+			else
+				LPATH+=$pkg:
+			fi
+		fi
+	done
+
+	# add prefix ':' as necessary and remove extra ':' suffix
+	if [[ ${PATH: -1} == ":" ]]; then
+		LPATH=${LPATH%:}
+	else
+		LPATH=:${LPATH%:}
+	fi
+
+	export PATH=${PATH}${LPATH}
+}
+
 if [[ -z ${PATEFIANT_ROOT:+x} ]]; then
 
 export PATEFIANT_ROOT=
@@ -12,25 +35,6 @@ export LD_LIBRARY_PATH=$PATEFIANT_ROOT/lib:$LD_LIBRARY_PATH
 export MANPATH=$PATEFIANT_ROOT/share/man:$MANPATH
 export INFOPATH=$PATEFIANT_ROOT/share/info:$INFOPATH
 
-# add valid opt package bin directories to $PATH
-LPATH=''
-for pkg in $PATEFIANT_ROOT/opt/*; do
-	if [[ -d $pkg ]]; then
-		if [[ -d $pkg/bin ]]; then
-			LPATH+=$pkg/bin:
-		else
-			LPATH+=$pkg:
-		fi
-	fi
-done
-
-# add prefix ':' as necessary and remove extra ':' suffix
-if [[ ${PATH: -1} == ":" ]]; then
-	LPATH=${LPATH%:}
-else
-	LPATH=:${LPATH%:}
-fi
-
-export PATH=${PATH}${LPATH}
+add_pat_path
 
 fi
