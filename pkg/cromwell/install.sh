@@ -8,7 +8,7 @@ version="86"
 
 author=broadinstitute
 repo=cromwell
-url=https://github.com/$author/$repo/releases/download/${version}/${name}-${version}.jar
+url=https://github.com/$author/$repo/releases/download/${version}
 
 
 # set the installation directory
@@ -28,7 +28,7 @@ install_jar() {
 	jname=$1
 	config=$2
 
-	wget -O $target_dir/${jname}-${version}.jar $url
+	wget -O $target_dir/${jname}-${version}.jar $url/${jname}-${version}.jar
 	ln -sf $target_dir/${jname}-${version}.jar $target_dir/${jname}.jar
 
 	echo "java -Xmx1G -XX:+UseSerialGC $config -jar $target_dir/${jname}.jar \"\$@\"" > $jname
