@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="r"
-version="4.3.3"
+version="4.4.0"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
@@ -28,7 +28,7 @@ cd $package
 	--prefix=$target_dir \
 	--enable-R-shlib \
 	--disable-java \
-	--with-x=no \
+	--with-x=yes \
 
 make
 make install
