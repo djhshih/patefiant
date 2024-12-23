@@ -3,7 +3,7 @@ set -e
 
 # Script for installing R package installer rip
 
-name="rip"
+name="dlazy"
 version="0.3"
 target_dir=$PATEFIANT_ROOT
 
