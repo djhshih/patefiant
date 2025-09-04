@@ -16,9 +16,9 @@ package=$name-$version
 
 tmp_dir=$(mktemp -d) && cd $tmp_dir && echo $tmp_dir
 
-wget -O $package.tar.gz ftp://ftp.stat.math.ethz.ch/Software/R/R-${version}.tar.gz
+wget -O $package.tar.xz https://stat.ethz.ch/R/daily/R-${version}.tar.xz
 mkdir $package
-tar -xzf $package.tar.gz -C $package --strip-components=1
+tar -xf $package.tar.xz -C $package --strip-components=1
 cd $package
 
 # extract files, configure, and compile
