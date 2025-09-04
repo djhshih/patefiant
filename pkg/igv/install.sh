@@ -6,7 +6,7 @@ set -o nounset
 localdir=$(dirname "$(readlink -f "$0")")
 
 name=igv
-version=2.15
+version=2.19
 version_minor=4
 target_dir=$PATEFIANT_ROOT/opt/$name
 
