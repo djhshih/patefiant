@@ -7,7 +7,7 @@ set -e
 #                - wget
 
 name="r"
-version="4.4.0"
+version="4.5.0"
 target_dir=$PATEFIANT_ROOT
 package=$name-$version
 
