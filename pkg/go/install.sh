@@ -6,7 +6,7 @@ set -o nounset
 localdir=$(dirname "$(readlink -f "$0")")
 
 name="go"
-version=1.13.4
+version=1.27.2
 target_dir=$PATEFIANT_ROOT/opt
 package=$name-$version
 
