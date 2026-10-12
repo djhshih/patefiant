@@ -7,7 +7,7 @@ localdir=$(dirname "$(readlink -f "$0")")
 
 name=pi
 version=latest
-#target_dir=$PATEFIANT_ROOT/opt/pi
+#target_dir=$PATEFIANT_ROOT/opt/${name}
 
 # pre-emptively create rust directories and establish symlinks at 
 # standard rust locations
